@@ -23,7 +23,7 @@ able to see the overall structure of how the pages relate.
 wget -r  http://www.johnbaylor.org/
 ```
 
-An additional benefit is that the blog is now backed up
+An additional benefit of getting all the source data locally is that the blog is now backed up
 locally as HTML files, so I could maybe now (finally!) close my DreamHost account.
 Using this single wget command gets everything in the WordPress way - once in an "archive" format where it is
 stored in a year/month/day
@@ -54,7 +54,7 @@ git clone git@github.com:JohnB/hairball.git
 ```
 
 Write a conversion wrapper (examples/wordpress_to_jekyll.rb):
-```
+```ruby
 require 'source/wordpress_archive_files'
 require 'converter/html_to_textile'
 require 'destination/jekyll_datestamped_blog_entries'
