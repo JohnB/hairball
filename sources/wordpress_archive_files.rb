@@ -31,7 +31,8 @@ class WordpressArchiveFiles
     @title = title
     @contents = IO.read(@file)
     @contents = Nokogiri::HTML(@contents)
-    @contents = @contents.at_xpath('//div[@id = "content"]')
-    #puts @contents
+    # WordPress adds extraneous elements - just get most of the grandchildren
+    @contents = @contents.at_xpath('//div[@id = "content"]').children[1].children[2..-1]
+    #puts @contents.inspect[0..2000] if file =~ /first/
   end
 end

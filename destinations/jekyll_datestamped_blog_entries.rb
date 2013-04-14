@@ -1,5 +1,3 @@
-require 'html2markdown'
-
 class JekyllDatestampedBlogEntries
   def initialize(dest_dir)
     @dest_dir = dest_dir
@@ -18,8 +16,7 @@ class JekyllDatestampedBlogEntries
   end
 
   def textile_format(converter)
-    #markdown_content = HTMLPage.new(:contents => converter.contents.to_s).markdown
-    markdown_content = HTML2Markdown.new(converter.contents.to_s).to_s
+    markdown_content = converter.contents.to_s
     page = [
         "---",
         "layout: default",

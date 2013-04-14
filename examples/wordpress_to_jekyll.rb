@@ -1,6 +1,6 @@
 require './hairball'
 require './sources/wordpress_archive_files'
-require './converters/html_to_textile'
+require './converters/noop_converter'
 require './destinations/jekyll_datestamped_blog_entries'
 
 def usage
@@ -13,6 +13,6 @@ my_source_dir = ARGV[0]
 dest_dir = ARGV[1]
 
 Hairball.new( :sources => WordpressArchiveFiles.sources(my_source_dir),
-              :converter => HtmlToTextile,
+              :converter => NoopConverter,
               :destination => JekyllDatestampedBlogEntries.new(dest_dir)
             ).convert
